@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PDF Generator</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    </head>
+
+    <body>
+        <div class="nav">
+            <p>PDF Generator - Developed by Gokul Krishna K</p>
+        </div>
+
+        <div class="tools" id="generatePDFButton">
+            <p>Export To PDF</p>
+        </div>
+
+        <div class="content">
+            <textarea id="notepad" placeholder="Type here..."></textarea>
+        </div>
+
+
+        <script>
+
+            let button = document.getElementById("generatePDFButton");
+            let makepdf = document.getElementById("notepad");
+            
+                button.addEventListener("click", function () {
+                    let mywindow = window.open("", "PRINT", 
+                            "height=400,width=600");
+        
+                    mywindow.document.write(makepdf.value);
+            
+                    mywindow.document.close();
+                    mywindow.focus();
+            
+                    mywindow.print();
+                    mywindow.close();
+            
+                    return true;
+                });
+        </script>
+        
+    </body>
+    <style>
+
+        body{
+        margin: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: dimgray;
+        }
+
+        .nav {
+            background-color: darkcyan;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .nav p{
+            margin: 0;
+            padding: 10px;
+            font-size: 40px;
+            color: whitesmoke;
+        }
+
+        .tools{
+            background-color:aquamarine;
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            margin: 20px;
+        }
+
+        .tools:hover{
+            cursor: pointer;
+        }
+
+        .content{
+            margin: 20px;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        #notepad {
+            background-color: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: monospace;
+            font-size: 20px;
+            line-height: 1.5;
+            padding: 10px;
+            resize: vertical;
+            width: 100%;
+            height: 80vh;
+            overflow: auto;
+        }
+
+    </style>
+</html>
